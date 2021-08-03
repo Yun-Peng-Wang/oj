@@ -13,7 +13,7 @@ void initPrime() {//初始化素数筛
     for (int i = 2; i <= numMax; i++) {
         if (markNotPrime[i] == true) continue;
         primeVec.push_back(i);
-        for (int j = i + i; j <= numMax; j = j + i)
+        for (int j = i * i; j <= numMax; j = j + i)//j直接从i*i开始，i*k（k<i）的在前面已经标记过了
             markNotPrime[j] = true;
     }
 }
