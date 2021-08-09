@@ -87,7 +87,7 @@ int main() {
                     treeOfTeam[bNode.index].personOfTeam += treeOfTeam[aNode.index].personOfTeam;
                 }
             }
-            else {//同一个根结点再减去一次num
+            else {
                 treeOfTeam[aNode.index].weightOfTeam += num;
             }
         }
