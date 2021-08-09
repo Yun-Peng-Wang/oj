@@ -1,5 +1,6 @@
 //https://acm.hdu.edu.cn/showproblem.php?pid=1856
 //并查集，在合并过程中同时合并两集合的元素个数
+//cin,cout有毒，用这两个超时，改为scanf，printf就不超时了
 #define _CRT_SECURE_NO_WARNINGS
 #include<bits/stdc++.h>
 using namespace std;
@@ -19,12 +20,14 @@ int findRoot(int node) {
 
 int main() {
     int connection;
-    while (cin>>connection){
+    //while (cin>>connection){
+    while (scanf("%d", &connection) != EOF) {
         tree.resize(personNumMax + 1, -1);//初始所有结点都是根节点
         treeNodeSum.resize(personNumMax + 1, 1);
         for (int i = 0; i < connection; i++) {
             int aPerson, bPerson;
-            cin >> aPerson >> bPerson;
+            //cin >> aPerson >> bPerson;
+            scanf("%d%d", &aPerson, &bPerson);
             aPerson = findRoot(aPerson);//在函数内部找根节点
             bPerson = findRoot(bPerson);
             if (aPerson != bPerson) {
@@ -37,7 +40,8 @@ int main() {
             if (tree[i] == -1 && treeNodeSum[i] > ans)
                 ans = treeNodeSum[i];
         }
-        cout << ans << endl;
+        //cout << ans << endl;
+        printf("%d\n", ans);
         tree.clear();
         treeNodeSum.clear();
     }
