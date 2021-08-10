@@ -37,7 +37,7 @@ int main() {
         //排序
         sort(edges.begin(), edges.end());
         int sumCost = 0;
-        for (auto it = edges.begin(); it < edges.end(); it++) {
+        for (auto it = edges.begin(); it < edges.end(); it++) {//按花费由小到大遍历所有边，如果两个结点没有连通，则取这条边
             int aNode, bNode;
             aNode = findRoot(it->aNode);
             bNode = findRoot(it->bNode);
